@@ -238,10 +238,10 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-amber-100 to-orange-200 flex flex-col items-center justify-center p-4 selection:bg-amber-500 selection:text-white font-[sans-serif]">
       <div className="bg-white shadow-2xl rounded-xl p-6 md:p-10 w-full max-w-xl transform transition-all duration-300 ease-out hover:shadow-amber-300/50 hover:scale-[1.005]">
         <header className="mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-amber-700 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-amber-700 tracking-tight">
             Kalkulator Wypieków
           </h1>
-          <p className="text-gray-600 mt-2 text-md md:text-lg">
+          <p className="text-gray-600 mt-2 text-2xl md:text-3xl">
             Oblicz składniki na idealne Wypieki piekarni Brzeźno
           </p>
         </header>
@@ -251,7 +251,7 @@ function App() {
             <button
               key={config.id}
               onClick={() => setActiveCalculator(config.id as CalculatorType)}
-              className={`px-4 py-3 text-md font-medium transition-colors duration-150 ease-in-out focus:outline-none
+              className={`px-4 py-3 text-2xl font-semibold transition-colors duration-150 ease-in-out focus:outline-none
                 ${activeCalculator === config.id 
                   ? 'border-b-2 border-amber-600 text-amber-600' 
                   : 'text-gray-500 hover:text-amber-500 hover:border-b-2 hover:border-amber-300'}`}
@@ -263,13 +263,13 @@ function App() {
         </nav>
 
         <section aria-labelledby={`${currentConfig.id}-selection-heading`} className="mb-8">
-          <h2 id={`${currentConfig.id}-selection-heading`} className="text-lg md:text-xl font-semibold text-gray-800 mb-4">
+          <h2 id={`${currentConfig.id}-selection-heading`} className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
             Wybierz rodzaje i ilości ({currentConfig.name.toLowerCase()}):
           </h2>
           <div className="space-y-4">
             {currentConfig.types.map((productType: RollType) => (
               <div key={productType.id} className="flex items-center justify-between gap-x-3 p-3 bg-gray-50 rounded-lg shadow-sm">
-                <label htmlFor={`qty_${currentConfig.id}_${productType.id}`} className="text-md text-gray-700 flex-1">
+                <label htmlFor={`qty_${currentConfig.id}_${productType.id}`} className="text-2xl text-gray-700 flex-1">
                   {productType.displayName}:
                 </label>
                 <input
@@ -279,7 +279,7 @@ function App() {
                   onChange={(e) => handleQuantityChange(productType.id, e.target.value)}
                   onKeyPress={handleEnterPress}
                   min="0"
-                  className="w-28 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-lg text-center transition-shadow duration-150"
+                  className="w-28 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-2xl text-center transition-shadow duration-150"
                   placeholder="0"
                   aria-label={`Ilość dla ${productType.name}`}
                 />
@@ -291,21 +291,21 @@ function App() {
         <div className="mb-8 text-center">
           <button
             onClick={handleCalculate}
-            className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-75 active:scale-95 text-lg"
+            className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-75 active:scale-95 text-2xl"
           >
             Oblicz Składniki
           </button>
         </div>
-        {error && <p id="error-message" role="alert" className="text-red-600 mt-3 text-sm bg-red-100 p-3 rounded-md shadow-sm text-center">{error}</p>}
+        {error && <p id="error-message" role="alert" className="text-red-600 mt-3 text-xl bg-red-100 p-3 rounded-md shadow-sm text-center">{error}</p>}
 
         {calculatedIngredients && !error && (
           <section aria-labelledby="ingredients-heading">
             {totalCalculatedFlour > 0 && (
-              <div className="text-md text-amber-800 my-6 p-3 bg-amber-100 rounded-lg shadow text-center">
+              <div className="text-2xl text-amber-800 my-6 p-3 bg-amber-100 rounded-lg shadow text-center">
                 Łączna potrzebna ilość mąki: <span className="font-bold">{formatAmount(totalCalculatedFlour, 'g', 'flour').formattedAmount} {formatAmount(totalCalculatedFlour, 'g', 'flour').formattedUnit}</span>
               </div>
             )}
-            <h2 id="ingredients-heading" className="text-xl md:text-2xl font-semibold text-amber-700 mb-6 border-b-2 border-amber-200 pb-3">
+            <h2 id="ingredients-heading" className="text-3xl md:text-4xl font-semibold text-amber-700 mb-6 border-b-2 border-amber-200 pb-3">
               Potrzebne składniki:
             </h2>
             <ul className="space-y-3">
@@ -319,23 +319,23 @@ function App() {
                   >
                     <div className="flex items-center">
                       {IconComponent && <IconComponent />}
-                      <span className="text-gray-800 text-md">{ingredient.name}</span>
+                      <span className="text-gray-800 text-2xl">{ingredient.name}</span>
                     </div>
-                    <span className="text-md font-medium text-amber-700 tabular-nums">
+                    <span className="text-2xl font-semibold text-amber-700 tabular-nums">
                       {formattedAmount} {formattedUnit}
                     </span>
                   </li>
                 );
               })}
             </ul>
-            <p className="mt-8 text-sm text-gray-500 text-center">
+            <p className="mt-8 text-xl text-gray-500 text-center">
               Pamiętaj, że to są ilości orientacyjne. Smacznego pieczenia! 🥖
             </p>
           </section>
         )}
       </div>
-       <footer className="mt-10 text-center text-xs text-amber-800/70">
-        <p>&copy; {new Date().getFullYear()} Kalkulator Wypieków. Stworzone z pasją do pieczenia.</p>
+       <footer className="mt-10 text-center text-lg text-amber-800/70">
+        <p>&copy; 2025 Kalkulator Wypieków. Stworzone z pasją do pieczenia. Krzysztof S.</p>
       </footer>
     </div>
   );

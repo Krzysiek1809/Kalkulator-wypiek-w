@@ -1,7 +1,6 @@
-
 {
-  "name": "Kalkulator Wypieków",
-  "description": "Aplikacja do obliczania składników na domowe bułki oraz rogale.",
+  "name": "Final wersion of Kalkulator Wypieków",
+  "description": "Aplikacja do obliczania składników na piekarnicze bułki oraz rogale.",
   "requestFramePermissions": [],
   "prompt": ""
 }

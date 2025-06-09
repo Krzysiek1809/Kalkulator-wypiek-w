@@ -291,7 +291,7 @@ function App() {
         <div className="mb-8 text-center">
           <button
             onClick={handleCalculate}
-            className="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-75 active:scale-95 text-2xl"
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 active:scale-95 text-2xl"
           >
             Oblicz Składniki
           </button>
